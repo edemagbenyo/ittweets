@@ -5,7 +5,7 @@ import { splitTextOnNumber } from "@/utils/string";
 import Image from "next/image";
 import { useState } from "react";
 import styles from "./page.module.css";
-import { ClipboardIcon } from '@heroicons/react/20/solid';
+import { ClipboardIcon } from "@heroicons/react/20/solid";
 
 export default function Home() {
   const [loading, setLoading] = useState(false);
@@ -32,26 +32,27 @@ export default function Home() {
     }
 
     setResult(splitTextOnNumber(data.result));
-    setLoading(false)
+    setLoading(false);
   };
   return (
     <main className="flex w-screen justify-center">
-      <div className="flex flex-col sm:w-[1024px] ">
+      <div className="flex flex-col w-full px-5 sm:w-[1024px] ">
         <Header />
         <br />
 
-        <div className="flex flex-row">
+        <div className="flex flex-col sm:flex-row ">
           <Search generatePost={generate} loading={loading} />
-          <section className="w-1/2">
-            <h2 className="text-2xl font-bold py-4 mb-10">Tweets</h2>
+          <section className="w-full sm:w-1/2">
+            <h2 className="text-2xl font-bold py-4 mb-10 text-center">Tweets</h2>
             {result.map((post, key) => (
               <article key={key} className="flex justify-between items-center my-3">
                 <span className="text-lg">
                   {key + 1}.{post}
                 </span>
-                <ClipboardIcon className="w-4 h-4 px-2 py-1 text-gray-400" />
+                <ClipboardIcon title="Copy" className="w-8 h-8 px-2 py-1 cursor-pointer" />
               </article>
             ))}
+            {result.length === 0 && <span className="text-xl block w-full text-center italic">No tweet generated yet.</span>}
           </section>
         </div>
       </div>

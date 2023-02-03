@@ -21,7 +21,7 @@ function Search({ generatePost, loading }: Props) {
     setCategory("technology");
   };
   return (
-    <section className="w-1/2 px-12">
+    <section className="w-full sm:w-1/2 px-12">
       <h1 className="text-2xl font-bold text-center py-4">Generate your next tweet</h1>
       <form className="space-y-6" onSubmit={formSubmit}>
         <div>
