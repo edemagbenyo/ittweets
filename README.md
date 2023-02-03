@@ -6,7 +6,7 @@ This project uses OpenAI to generate tweets for you
 
 ## How it works
 
-Introducing itTweets, a public GitHub project powered by OpenAI's ChatGPT language model. With itTweets, you can generate creative and unique tweets with just a few inputs. Simply provide a prompt and TweetGPT will generate a tweet that continues the thought. Perfect for social media marketers, content creators, and anyone looking for an easy way to generate new tweet ideas. Give it a try today and see how TweetGPT can supercharge your tweeting!
+Introducing itTweets, a public GitHub project powered by OpenAI's ChatGPT language model. With itTweets, you can generate creative and unique tweets with just a few inputs. Simply provide a prompt and itTweets will generate a tweet that continues the thought. Perfect for social media marketers, content creators, and anyone looking for an easy way to generate new tweet ideas. Give it a try today and see how itTweets can supercharge your tweeting!
 
 ## Running Locally
 
