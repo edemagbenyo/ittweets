@@ -13,16 +13,16 @@ const configuration = new Configuration({
 const openai = new OpenAIApi(configuration);
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse<any>) {
-  const data = req.body as { topic: string; category: string; mood: string };
+  const data = req.body as { topic: string; category: string; mood: string; numberOfTweets: number };
   try {
     const completion = await openai.createCompletion({
       model: "text-davinci-003",
-      prompt: generatePrompt(data.topic, data.category, data.mood),
+      prompt: generatePrompt(data.topic, data.category, data.mood, data.numberOfTweets),
       temperature: 0.6,
       max_tokens: 200,
     });
 
-    console.log("completion.data.choices[0].text",completion.data.choices[0].text);
+    console.log("completion.data.choices[0].text", completion.data.choices[0].text);
     res.status(200).json({ result: completion.data.choices[0].text });
   } catch (error: any) {
     // Consider adjusting the error handling logic for your use case
@@ -40,8 +40,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
   }
 }
 
-function generatePrompt(topic: string, category: string, mood: string, type: "tweets" | "linkedin post" = "tweets") {
-  return `Generate 1 ${type} on the topic of ${htmlEntities(topic)} with 1 hashtags and clearly labeled "1.". 
+function generatePrompt(topic: string, category: string, mood: string, numberOfTweets: number = 1, type: "tweets" | "linkedin post" = "tweets") {
+  return `Generate ${numberOfTweets} ${type} on the topic of ${htmlEntities(topic)} with 1 hashtags and clearly labeled "1.". 
         Make sure there is a touch of ${htmlEntities(mood)}  in there. 
             Make sure each generated ${type} is at max 5 words and base it on ${htmlEntities(category)}`;
 }
