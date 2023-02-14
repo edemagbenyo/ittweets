@@ -68,7 +68,7 @@ function Search({ generatePost, loading }: Props) {
             Number of tweets
           </label>
           <div className="flex flex-row items-center justify-between">
-            <input id="default-range" type="range" onChange={(e) => setNumberOfTweets(1)} value={numberOfTweets} min={1} max={5} className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700 px-1" />
+            <input id="default-range" type="range" onChange={(e) => Number(e.target.value) <=2 && setNumberOfTweets(Number(e.target.value))} value={numberOfTweets} min={1} max={5} className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700 px-1" />
             <span className="w-1/5 text-right">{numberOfTweets}</span>
           </div>
           <span className="text-gray-600 italic font-semibold text-sm">This is set to a default of 1 and disabled to limit the number of token used per request</span>

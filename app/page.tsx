@@ -6,6 +6,7 @@ import Image from "next/image";
 import { useState } from "react";
 import styles from "./page.module.css";
 import { ClipboardIcon } from "@heroicons/react/20/solid";
+import Footer from "@/components/footer";
 
 export default function Home() {
   const [loading, setLoading] = useState(false);
@@ -35,12 +36,12 @@ export default function Home() {
     setLoading(false);
   };
   return (
-    <main className="flex w-screen justify-center">
-      <div className="flex flex-col w-full px-5 sm:w-[1024px] ">
+    <main className="flex w-screen justify-center h-screen">
+      <div className="flex flex-col w-full px-5 sm:w-[1024px] relative">
         <Header />
         <br />
 
-        <div className="flex flex-col sm:flex-row ">
+        <div className="flex flex-col sm:flex-row mb-10">
           <Search generatePost={generate} loading={loading} />
           <section className="w-full sm:w-1/2">
             <h2 className="text-2xl font-bold py-4 mb-10 text-center">Tweets</h2>
@@ -55,6 +56,7 @@ export default function Home() {
             {result.length === 0 && <span className="text-xl block w-full text-center italic">No tweet generated yet.</span>}
           </section>
         </div>
+        <Footer/>
       </div>
     </main>
   );

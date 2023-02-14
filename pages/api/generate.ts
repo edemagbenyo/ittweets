@@ -43,7 +43,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
 function generatePrompt(topic: string, category: string, mood: string, numberOfTweets: number = 1, type: "tweets" | "linkedin post" = "tweets") {
   return `Generate ${numberOfTweets} ${type} on the topic of ${htmlEntities(topic)} with 1 hashtags and clearly labeled "1.". 
         Make sure there is a touch of ${htmlEntities(mood)}  in there. 
-            Make sure each generated ${type} is at max 5 words and base it on ${htmlEntities(category)}`;
+            Make sure each generated ${type} is at max 50 words and base it on ${htmlEntities(category)}`;
 }
 
 /**
