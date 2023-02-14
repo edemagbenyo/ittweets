@@ -1,4 +1,4 @@
-# [ittweets.com](https://www.ittweets.com/)
+# [ittweets](https://ittweets.vercel.app)
 
 This project uses OpenAI to generate tweets for you
 
